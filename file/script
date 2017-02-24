@@ -1,0 +1,12 @@
+#!/bin/bash
+
+function quit {
+	echo ES
+	exit
+}
+function hello {
+	echo HELLO!
+}
+hello
+echo foo
+quit

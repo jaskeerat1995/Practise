@@ -20,7 +20,7 @@ void connect_socket(int sockfd)
 	struct sockaddr_in my_addr;
 	my_addr.sin_family = AF_INET;
 	my_addr.sin_port = htons(5000);
-	my_addr.sin_addr.s_addr = inet_addr("192.168.28.128"); 
+	my_addr.sin_addr.s_addr = inet_addr("192.168.1.111"); 
 	if (connect(sockfd,(struct sockaddr *)&my_addr, sizeof(struct sockaddr_in)) < 0)
 	{
 		perror("connect");
@@ -53,20 +53,26 @@ int main(int argc, char *argv[])
 	
 //	chmod("/root/socket/socket_directory/file",S_IRUSR|S_IWUSR|S_IWGRP|S_IRGRP);
 	
-
-	if (fchmodat(fd,"/root/socket/FUCKYOU",0666,0) < 0)
+	
+	if (fchmodat(fd,"/root/practise/socket/FUCKYOU",0666,0) < 0)
 	{
 		perror("fchmodat");
 		exit(EXIT_FAILURE);
 	}
-
+	
 /*	if (fchmodat(fd,argv[1],0666,0) < 0)
 	{
 		perror("fchmodat");
 		exit(EXIT_FAILURE);
 	}
-*/
-	
+*/	
+	memset(buff,'\0',sizeof(buff));
+	scanf("%s",buff);
+	bytes = send(fd,buff,strlen(buff),0);
+        printf("bytes send: %d\n",bytes);
+	//bytes = read(fd,)	
+	//printf("bytes send: %d\n",bytes);
+			
 	
 	close(fd);
 	

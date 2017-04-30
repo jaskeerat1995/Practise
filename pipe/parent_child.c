@@ -20,8 +20,8 @@ int main()
 	}
 	else if (pid == 0)
 	{
-		printf("process id:%d\n",getpid());
-		printf("parent process id : %d\n",getppid());
+		printf("child process id:%d\n",getpid());
+		printf("IN child parent process id : %d\n",getppid());
 		printf("I am in child\n");
 	}
 	else if (pid == -1)

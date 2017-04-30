@@ -104,8 +104,19 @@ int main()
 			printf("%ld\n",(ino_t)dp->d_ino);	
 		}
 		}
-			
-				
+		
+		memset(buff,'\0',sizeof(buff));
+		bytes = read(sfd,buff,sizeof(buff));	
+		printf("%s\n",buff);
+		printf("bytes read: %d\n",bytes);
+		fd = open(buff,O_RDONLY);			
+		if (fd < 0)
+		{
+			perror("open");
+			exit(EXIT_FAILURE);
+		}
+		printf("%s : fd = %d\n",__FILE__,fd);
+		write(fd,);		
 
 //	}
 	close(dirp);

@@ -1,0 +1,12 @@
+3 Clients accessing the shared memory and update the temp variable one by one which is located in shared memory.
+
+Shared memory access is restricted by semaphores. 
+
+NOTE: shmat() is not working because we didn't call the shmget(). 
+we just pass the shmid through execl to all clients. But its not working.
+
+::::::NOTE::::::
+
+ITS WORKING. JUST REMOVE THE SHMDT() AND SHMCTL(). BECAUSE DUE TO THIS, MAIN PROCESS DELETE THE LINK NODE + DELTE THE WHOLE SHARED MEMORY.
+SO, NO NEED TO CREATE THE SHARED MEMORY AGAIN IN ALL CLIENTS. 
+

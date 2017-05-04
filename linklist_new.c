@@ -19,7 +19,8 @@ enum linklist{
         INSERT_AT_POSITION,
         DELETE_AT_POSITION,
         REMOVE_DUPLICITY,
-        LOOP_DETECT
+        LOOP_DETECT,
+	DELETE_FIRST
 };
 
 
@@ -35,6 +36,7 @@ struct node * insert_at_position(struct node *);
 struct node * delete_at_position(struct node *);
 struct node * remove_duplicity(struct node *);
 void loop_detect(struct node *);
+struct node * delete_first(struct node *);
 
 int main()
 {
@@ -82,6 +84,8 @@ int main()
 			  		break;
 		case LOOP_DETECT: 	loop_detect(start);
 			  		break;
+		case DELETE_FIRST:	delete_first(start);
+					break;
 
 	}
 	}while(no != 100);
@@ -193,6 +197,11 @@ void delete_node(struct node **start)
 	printf("temp->next = %p\n",temp->next);
 }
 
+struct node * delete_first(struct node *new_node)
+{
+	
+
+}
 struct node * begining(struct node *new_node)
 {
 	printf("new_node = %p\n",new_node);

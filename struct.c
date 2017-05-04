@@ -1,6 +1,7 @@
 #include<stdio.h>
+
 	
-struct dh
+/*struct dh
 {	
 	char c;
 	int i:25;
@@ -10,13 +11,22 @@ struct dh
 //	char h;
 //	char s;
 };	
+*/
+
+typedef struct struct_a
+{
+	char c;	
+	char d;	
+	int n;
+	char e;
+}abc;	
 	
-	
-struct dh d;
+//struct dh d;
 	
 int main()
 {	
-	printf("%d\n",sizeof(d));
+	abc a; 
+	printf("%d\n",sizeof(a));
 	
 		
 	

@@ -1,0 +1,1 @@
+3 Clients accessing the shared memory and update the temp variable one by one which is located in shared memory. Shared memory access is restricted by semaphores. 

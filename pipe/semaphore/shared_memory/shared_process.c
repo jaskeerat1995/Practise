@@ -12,7 +12,7 @@ int main()
 	void *shared_pointer = (void *)0;
 	struct shared_memory *shared_ptr;
 	int shmid, i;
-	char **p, child_pid[8], SHM_ID[10];
+	char **p, child_pid[8];
 	
 	p = (char **)malloc(sizeof(char) * 30);	
 	*(p + 0) = "./client1";
@@ -54,16 +54,15 @@ int main()
 			case 0:  printf("This is child process");
 				 PID = getpid();
 				 sprintf(child_pid,"%d",PID);
-				 sprintf(SHM_ID,"%d",shmid);
-				 execl(*(p + i),*(p + i),child_pid,SHM_ID,NULL);
+				 execl(*(p + i),*(p + i),child_pid,NULL);
 				 printf("execl failed\n");
 		}
 		printf("This is parent.....\n");
 		printf("parent pid: %d\n",getpid());	
 	}		
 		
-/*	
-	if (shmdt(shared_pointer) == -1){
+	
+/*	if (shmdt(shared_pointer) == -1){
 		perror("shmdt failed");
 		exit(EXIT_FAILURE);
 	}
@@ -72,8 +71,8 @@ int main()
 		perror("shmdt failed");
 		exit(EXIT_FAILURE);
 	}
-	
-*/
+*/	
+
 	//exit(EXIT_SUCCESS);
 	return 0;
 OUT:	return -1;

@@ -1,0 +1,1 @@
+cmd_/root/gpio_interrupt/gpio.ko := ld -EL -r  -T /usr/src/linux-headers-3.8.13-bone65/scripts/module-common.lds --build-id  -o /root/gpio_interrupt/gpio.ko /root/gpio_interrupt/gpio.o /root/gpio_interrupt/gpio.mod.o

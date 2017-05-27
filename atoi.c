@@ -5,7 +5,7 @@ int Atoi(const char *);
 	
 int main()
 {	
-	const char *str = "sga";
+	const char *str = "sgadsada";
 	int val;
 
 	val = Atoi(str);

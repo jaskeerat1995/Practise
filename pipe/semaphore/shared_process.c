@@ -72,8 +72,8 @@ int main()
 		perror("shmdt failed");
 		exit(EXIT_FAILURE);
 	}
-	
-*/
+*/	
+
 	//exit(EXIT_SUCCESS);
 	return 0;
 OUT:	return -1;

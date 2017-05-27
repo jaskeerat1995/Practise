@@ -61,8 +61,8 @@ int main()
 		printf("parent pid: %d\n",getpid());	
 	}		
 		
-	
-/*	if (shmdt(shared_pointer) == -1){
+/*	
+	if (shmdt(shared_pointer) == -1){
 		perror("shmdt failed");
 		exit(EXIT_FAILURE);
 	}

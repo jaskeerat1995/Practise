@@ -67,10 +67,10 @@ void *thread_read(void *arg)
 	int i;
 	i = *(int *)arg;
 	printf("thread_fd in thread_read function: %d\n",i);
-	printf("Enter some text:\n");
 	while(strncmp(text,"end",3) != 0)
 	{
 		sem_wait(&sema);
+		printf("Enter some text:\n");
 		fgets(text,BUFSIZ,stdin);
 		printf("Input String: %s\n",text);
 		sem_post(&sema);	

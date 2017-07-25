@@ -9,7 +9,7 @@ void merge_array(int *arr, int i1, int j1, int i2, int j2)
 	int p,q,k;
 	i = i1;
 	j = i2;
-	n1 = j1 -i1 + 1;
+	n1 = j1 - i1 + 1;
 	n2 = j2 - j1;
 	p = 0;
 	q = 0;

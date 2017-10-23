@@ -12,27 +12,32 @@ enum bit_manipulation
 	Twos_compliment,
 	Binary_to_integer,
 	Rotate_bits,
-	Operation_on_bits
+	Operation_on_bits,
+	Swap_nibble
 };
 
-void binary_method1(int);
-void binary_method2(int);
-void binary_method3(int);
-void binary_method4(int);
-void binary_method5(int);
-void twos_compliment(int);
-void binary_to_integer(int);
-void rotate_bits(int);
-void operations_on_bits(int);
+void binary_method1(unsigned int);
+void binary_method2(unsigned int);
+void binary_method3(unsigned int);
+void binary_method4(unsigned int);
+void binary_method5(unsigned int);
+void twos_compliment(unsigned int);
+void binary_to_integer(unsigned int);
+void rotate_bits(unsigned int);
+unsigned int rotate_right(unsigned int);
+unsigned int rotate_left(unsigned int);
+void operations_on_bits(unsigned int);
+void swap_nibble(unsigned int);
 
 
 int main()
 {
-	int no, num;
+	int no;
+	unsigned int num;
 	
 	do{
 		printf("........BIT_MANIPULATIONS..........\n");
-		printf("....Binary Representation Method 1...\n");
+		printf("....Binary Representation Method 1..., \n");
 		printf("....Binary Representation Method 2...\n");
 		printf("....Binary Representation Method 3...\n");
 		printf("....Binary Representation Method 4...\n");
@@ -41,11 +46,12 @@ int main()
 		printf(".........Binary to Integer.............\n");
 		printf(".............Rotate bits................\n");
 		printf("..........Operation on Bits..............\n");
+		printf(".............Swap Nibble..............\n");
 		
 
 		scanf("%d",&no);
 		printf("Enter Integer:\n");
-		scanf("%d",&num);
+		scanf("%u",&num);
 		
 		switch(no)
 		{
@@ -67,12 +73,14 @@ int main()
 						break;
 			case Operation_on_bits:	operations_on_bits(num);
 						break;
+			case Swap_nibble:	swap_nibble(num);
+						break;
 		}
 	}while(no != 100);
 
 }
 
-void binary_method1(int no)
+void binary_method1(unsigned int no)
 {
 	int i, arr[INT_BITS];
 	
@@ -91,13 +99,15 @@ void binary_method1(int no)
 
 	for(i = INT_BITS - 1; i >= 0; i--)
 	{
-		printf("%d",arr[i]);
+		printf("%u",arr[i]);
+		if (i % 8 == 0)
+			printf(" ");
 	}
 	printf("\n");	
 
 }
 
-void binary_method2(int no)
+void binary_method2(unsigned int no)
 {
 	int i, arr[INT_BITS];
 
@@ -108,13 +118,15 @@ void binary_method2(int no)
 
 	for(i = 0; i < INT_BITS; i++)
 	{
-		printf("%d",arr[i]);
+		printf("%u",arr[i]);
+		if (i % 8 == 0)
+			printf(" ");
 	}
 	printf("\n");	
 
 }
 
-void binary_method3(int no)
+void binary_method3(unsigned int no)
 {
 	unsigned int i;
 
@@ -124,38 +136,86 @@ void binary_method3(int no)
 	printf("\n");
 }
 
-void binary_method4(int no)
+void binary_method4(unsigned int no)
 {
+	
+	
+}
 
+void binary_method5(unsigned int no)
+{
+	
+	
+}
+
+void twos_compliment(unsigned int no)
+{
+	
+	
+}
+	
+void binary_to_integer(unsigned int no)
+{
+	
 
 }
 
-void binary_method5(int no)
+void rotate_bits(unsigned int no)
 {
+	binary_method1(no);
 
+	int num;
+	unsigned int nos;
+	printf("Rotate Right: Press 1\n");	
+	printf("Rotate Left: Press 2\n");
+	scanf("%d",&num);	
+	switch(num)
+	{
+		case 1:		binary_method1(rotate_right(no));
+				//binary_method1(nos);
+				break;
+		case 2:		rotate_left(no);
+				break;
+	}
+	
 
 }
-
-void twos_compliment(int no)
+	
+unsigned int rotate_right(unsigned int no)
 {
+	int pos;
 
+	printf("How many bits you want to rotate right\n");
+	scanf("%d",&pos);
 
+	return no >> pos | no << (32 - pos);			
 }
 
-void binary_to_integer(int no)
+unsigned int rotate_left(unsigned int no)
 {
-
-
+		
 }
 
-void rotate_bits(int no)
+void operations_on_bits(unsigned int no)
 {
-
-
+	
+	
 }
 
-void operations_on_bits(int no)
+void swap_nibble(unsigned int no)
 {
+	binary_method1(no);
+	
+	int i,j = 0;
+	unsigned int arr[4] = {0xFFFFFF00,0xFFFF00FF,0xFF00FFFF,0x00FFFFFF};	
 
+	for(i = 0; i < INT_BITS; i+=8){
+	no = (((0xF0 << i) & no) >> 4) | (((0x0F << i) & no) << 4) | (no & arr[j]);
+	j++;
+	}
 
+//	no = ((0xF0 & no) >> 4) | ((0x0F & no) << 4) | (no & arr[0]);
+
+	printf("After swap..............\n");
+	binary_method1(no);
 }
